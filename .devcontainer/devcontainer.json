@@ -1,0 +1,20 @@
+{
+  "name": "Granforge Demo Environment",
+  "image": "jpietrzyktud/granforge:latest",
+  "runArgs": ["--privileged"],
+  "remoteUser": "root",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools-extension-pack",
+        "DBTUD.tslgen-edit",
+        "mohsen1.prettify-json",
+      ]
+    }
+  },
+  "postAttachCommand": "sudo mkdir -p /usr/include/tsl && curl -L -s 'https://github.com/db-tu-dresden/TSL/releases/latest/download/setup_tsl.sh' | sudo /bin/bash -s -- --system"
+}
